@@ -1,7 +1,7 @@
 // ==========================================
 // CONFIGURACIÓN DE IA - CLAVE ACTUALIZADA
-const pA = 'AIzaSyC8Bg8DrUGskn'; // Primera mitad
-const pB = 'NqIfaVUujzWaetgPOvKF4'; // Segunda mitad
+const pA = 'AIzaSyBM-ec7M0ef3lpZfk'; // Parte 1
+const pB = 'QxUgxK94gt3467kUE';       // Parte 2
 const GEMINI_API_KEY = pA + pB;
 // ==========================================
 
