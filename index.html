@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Siempre Contigo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hug-overlay" class="hug-overlay">
+        <div class="hug-heart">♡</div>
+    </div>
+
+    <div class="app-container">
+        <img src="Logo de Saturno.png" alt="Saturno AI Logo" class="saturno-logo">
+
+        <div class="top-tools">
+            <button id="btn-reset" class="tool-btn" title="Reiniciar Chat">r</button>
+            <button id="btn-hug" class="tool-btn" title="Abrazo Digital">♡</button>
+        </div>
+
+        <div class="head-container" id="head">
+            <div class="face-mover" id="face-elements">
+                <div class="eye-container">
+                    <div class="eye left" id="eye-l"></div>
+                    <div class="eye right" id="eye-r"></div>
+                </div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-history" id="chat-history">
+                <div class="message bot-message">
+                    <p id="greeting">Hola. Estoy aquí para acompañarte, mi amor.</p>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Escribe cómo te sientes..." autocomplete="off">
+                <button id="btn-send" class="btn-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

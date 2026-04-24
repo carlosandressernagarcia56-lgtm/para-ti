@@ -1,0 +1,242 @@
+:root {
+    --bg-color: #f8f9fa;
+    --face-color: #1a1a1a;
+    --chat-bg: #ffffff;
+    --user-msg: #e3f2fd;
+    --bot-msg: #f1f3f5;
+    --text-main: #333333;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.head-container {
+    position: relative;
+    width: 150px;
+    height: 160px;
+    margin-top: 50px; /* Ajustado para las herramientas superiores */
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: breathe 5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.face-mover {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), all 0.3s ease;
+}
+
+.eye-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 10px;
+}
+
+.eye {
+    width: 30px;
+    height: 60px;
+    background-color: var(--face-color);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--face-color);
+    transform: translateY(-100%);
+    transition: transform 0.1s linear;
+}
+
+.eye.blinking::after { transform: translateY(0%); }
+
+.mouth {
+    width: 100px;
+    height: 50px;
+    background-color: var(--face-color);
+    margin: 0 auto;
+    border-radius: 0 0 80px 80px;
+    transition: all 0.3s ease;
+}
+
+/* --- Estados de Mirada --- */
+.look-left { transform: translateX(-15px); }
+.look-right { transform: translateX(15px); }
+.look-up { transform: translateY(-10px); }
+.look-down { transform: translateY(10px); }
+.look-focus { transform: scale(1.05) translateY(5px); }
+
+/* --- Interfaz de Chat --- */
+.chat-container {
+    flex-grow: 1;
+    width: 100%;
+    background-color: var(--chat-bg);
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.03);
+    overflow: hidden;
+}
+
+.chat-history {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--text-main);
+    word-wrap: break-word;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: var(--bot-msg);
+    border-bottom-left-radius: 5px;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: var(--user-msg);
+    border-bottom-right-radius: 5px;
+}
+
+.chat-input-area {
+    padding: 15px 20px;
+    background-color: var(--chat-bg);
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#user-input:focus { border-color: #b0bec5; }
+
+.btn-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background-color: var(--face-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.btn-icon:active { transform: scale(0.9); }
+.btn-icon svg { width: 20px; height: 20px; }
+
+@keyframes breathe {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-3px) scale(1.02); }
+}
+
+/* ==========================================
+   CATÁLOGO DE EMOCIONES 
+========================================== */
+
+.emotion-alegria .mouth { height: 60px; border-radius: 0 0 100px 100px; transform: scale(1.1); }
+.emotion-alegria .eye { box-shadow: 0 25px 10px -5px rgba(255, 105, 180, 0.5); }
+.emotion-tristeza .left { transform: rotate(-15deg); }
+.emotion-tristeza .right { transform: rotate(15deg); }
+.emotion-tristeza .mouth { height: 15px; border-radius: 20px; transform: translateY(15px); }
+.emotion-estres .left { transform: rotate(15deg); height: 50px; margin-top: 10px; border-radius: 5px 5px 12px 12px; }
+.emotion-estres .right { transform: rotate(-15deg); height: 50px; margin-top: 10px; border-radius: 5px 5px 12px 12px; }
+.emotion-estres .mouth { height: 20px; width: 60px; border-radius: 10px; }
+.emotion-sorpresa .eye { height: 35px; border-radius: 50%; transform: scale(1.2); }
+.emotion-sorpresa .mouth { width: 35px; height: 35px; border-radius: 50%; }
+.emotion-pensando { transform: translateY(-10px) translateX(10px); }
+.emotion-pensando .eye { height: 45px; }
+.emotion-pensando .mouth { width: 40px; height: 10px; border-radius: 10px; transform: translateX(15px); }
+
+/* ==========================================
+   MÓDULOS DE UI (Logo, Botones, Abrazo)
+========================================== */
+
+.saturno-logo {
+    position: absolute;
+    top: 0.2px;
+    left: 0.2px;
+    width: 100px; 
+    height: 100px;
+    z-index: 10;
+    opacity: 0.6;
+    pointer-events: none;
+    object-fit: contain;
+}
+
+.top-tools {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 15px;
+    z-index: 10;
+}
+
+.tool-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    padding: 0;
+}
+.tool-btn:active { transform: scale(0.8); }
+
+.hug-overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background: rgba(255,105,180,0.3);
+    display: none; justify-content: center; align-items: center;
+    z-index: 100; backdrop-filter: blur(8px);
+}
+.hug-overlay.active { display: flex; animation: fadeInOut 4s forwards; }
+.hug-heart { font-size: 120px; animation: heartbeat 1s infinite; }
+@keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+@keyframes fadeInOut { 0% { opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { opacity: 0; } }
