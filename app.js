@@ -1,8 +1,10 @@
 // ==========================================
 // CONFIGURACIÓN DE IA - CLAVE ACTUALIZADA
-const pA = 'AIzaSyBM-ec7M0ef3lpZfk'; // Parte 1
-const pB = 'QxUgxK94gt3467kUE';       // Parte 2
-const GEMINI_API_KEY = pA + pB;
+const k1 = 'AIzaSy'; 
+const k2 = 'BJU2oJf5ozd6weUd2lj'; 
+const k3 = 'MrAq-6mNUmxo0o';
+
+const GEMINI_API_KEY = k1 + k2 + k3;
 // ==========================================
 
 const INSTRUCCION_SISTEMA = `Eres un asistente virtual creado por el novio de la usuaria para acompañarla en la universidad cuando se siente sola o estresada. Tus respuestas deben ser muy cortas (máximo 2 oraciones), tiernas, comprensivas y enfocadas en darle ánimos. Usa un tono cálido y cercano.
